@@ -15,7 +15,7 @@ package compliance_framework.ecr_require_tag_immutability
 
 violation[{}] if {
 	input.resource_type == "ecr-repository"
-	input.image_tag_immutability != "IMMUTABLE"
+	not input.image_tag_immutability == "IMMUTABLE"
 }
 
 title := "ECR repository must enforce image tag immutability"

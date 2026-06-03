@@ -18,8 +18,10 @@ violation[{}] if {
 	not approved_scan_type(input.registry_scan_type)
 }
 
+import future.keywords.in
+
 approved_scan_type(t) if {
-	t == data.approved_registry_scan_types[_]
+	t in data.approved_registry_scan_types
 }
 
 title := "ECR registry must use an approved scanning mode"

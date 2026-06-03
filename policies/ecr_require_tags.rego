@@ -19,7 +19,7 @@ violation[{"missing_tag": tag}] if {
 violation[{"invalid_tag_value": tag, "expected": expected, "got": got}] if {
 	input.resource_type == "ecr-repository"
 	some tag, expected in data.required_tag_values
-	got := input.tags[tag]
+	got := input.tags[tag]  # only binds when the tag is present; missing tags fall through to missing_tag
 	got != expected
 }
 

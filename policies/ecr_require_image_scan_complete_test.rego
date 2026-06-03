@@ -35,6 +35,13 @@ test_fail_scan_never_run if {
 	}
 }
 
+test_fail_scan_status_missing if {
+	# scan_status absent entirely — must not fail open
+	count(violation) == 1 with input as {
+		"resource_type": "ecr-image",
+	}
+}
+
 test_no_match_repository_resource if {
 	count(violation) == 0 with input as {
 		"resource_type": "ecr-repository",

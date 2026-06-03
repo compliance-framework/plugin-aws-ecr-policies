@@ -15,7 +15,7 @@ package compliance_framework.ecr_require_image_scan_complete
 
 violation[{}] if {
 	input.resource_type == "ecr-image"
-	input.scan_status != "COMPLETE"
+	not input.scan_status == "COMPLETE"
 }
 
 title := "Container image must have a completed vulnerability scan"
