@@ -1,0 +1,8 @@
+{
+  "approved_encryption_types": ["KMS"],
+  "approved_registry_scan_types": ["ENHANCED"],
+  "required_repository_tags": ["Environment", "Owner"],
+  "required_tag_values": {},
+  "image_lookback_days": 90,
+  "max_high_finding_count": 0
+}
