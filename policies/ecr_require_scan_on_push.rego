@@ -23,3 +23,12 @@ violation[{}] if {
 
 title := "ECR repository must have scan-on-push enabled"
 description := "Automatic image scanning on push is required for all production ECR repositories. Without it, newly pushed images are not checked for vulnerabilities."
+
+risk_templates := [{
+	"name":             "ecr_require_scan_on_push",
+	"title":            "ECR repository scan-on-push is disabled",
+	"statement":        "Automatic image scanning on push is not enabled, allowing unscanned images to be deployed.",
+	"likelihood_hint":  "high",
+	"impact_hint":      "high",
+	"violation_ids":    ["ecr_require_scan_on_push"],
+}]

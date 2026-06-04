@@ -25,3 +25,12 @@ violation[{"invalid_tag_value": tag, "expected": expected, "got": got}] if {
 
 title := "ECR repository must carry all required tags"
 description := "Missing required tags prevent cost attribution, ownership tracing, and lifecycle management of container repositories."
+
+risk_templates := [{
+	"name":             "ecr_require_tags",
+	"title":            "ECR repository has missing or incorrect required tags",
+	"statement":        "One or more required tags are absent or carry an incorrect value, preventing cost attribution, ownership tracing, and lifecycle management of the repository.",
+	"likelihood_hint":  "low",
+	"impact_hint":      "low",
+	"violation_ids":    ["ecr_require_tags"],
+}]

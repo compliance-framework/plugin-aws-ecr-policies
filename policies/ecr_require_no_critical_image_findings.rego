@@ -20,3 +20,12 @@ violation[{}] if {
 
 title := "Container image must have zero CRITICAL severity findings"
 description := "Images with unresolved CRITICAL findings must not be promoted to production. A non-zero CRITICAL count indicates a vulnerability that poses an immediate exploitation risk."
+
+risk_templates := [{
+	"name":             "ecr_require_no_critical_image_findings",
+	"title":            "Container image has unresolved CRITICAL vulnerabilities",
+	"statement":        "CRITICAL severity findings indicate immediately exploitable vulnerabilities that must be remediated before promotion.",
+	"likelihood_hint":  "critical",
+	"impact_hint":      "critical",
+	"violation_ids":    ["ecr_require_no_critical_image_findings"],
+}]
