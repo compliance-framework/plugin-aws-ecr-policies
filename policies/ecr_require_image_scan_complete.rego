@@ -20,3 +20,12 @@ violation[{}] if {
 
 title := "Container image must have a completed vulnerability scan"
 description := "Images without a completed scan cannot be evaluated for vulnerabilities. Every image pushed in the lookback window must show scan_status COMPLETE before being considered for promotion."
+
+risk_templates := [{
+	"name":             "ecr_require_image_scan_complete",
+	"title":            "Container image has not been vulnerability scanned",
+	"statement":        "An image without a completed scan cannot be verified free of known vulnerabilities before deployment.",
+	"likelihood_hint":  "high",
+	"impact_hint":      "high",
+	"violation_ids":    ["ecr_require_image_scan_complete"],
+}]
