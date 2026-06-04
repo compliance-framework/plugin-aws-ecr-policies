@@ -28,8 +28,8 @@ description := "Missing required tags prevent cost attribution, ownership tracin
 
 risk_templates := [{
 	"name":             "ecr_require_tags",
-	"title":            "ECR repository is missing required tags",
-	"statement":        "Missing required tags prevent cost attribution, ownership tracing, and lifecycle management.",
+	"title":            "ECR repository has missing or incorrect required tags",
+	"statement":        "One or more required tags are absent or carry an incorrect value, preventing cost attribution, ownership tracing, and lifecycle management of the repository.",
 	"likelihood_hint":  "low",
 	"impact_hint":      "low",
 	"violation_ids":    ["ecr_require_tags"],
