@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      OPA_VERSION: v1.17.0
+      OPA_SHA256: e83da46804832578e9d9e1733dffbe4d3b5f8cc9c26eb124da9ceea4abfe189f
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Install OPA
+        run: |
+          curl -fsSL -o opa_linux_amd64_static \
+            "https://github.com/open-policy-agent/opa/releases/download/${OPA_VERSION}/opa_linux_amd64_static"
+          echo "${OPA_SHA256}  opa_linux_amd64_static" | sha256sum -c -
+          chmod +x opa_linux_amd64_static
+          sudo mv opa_linux_amd64_static /usr/local/bin/opa
+      - name: Validate policies
+        run: opa check policies
+      - name: Run OPA tests
+        run: opa test policies

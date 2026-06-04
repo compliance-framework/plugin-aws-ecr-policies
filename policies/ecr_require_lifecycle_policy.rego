@@ -1,0 +1,17 @@
+# METADATA
+# title: ECR repository must have a lifecycle policy configured
+# description: Repositories without lifecycle policies accumulate stale images indefinitely, violating asset disposal requirements. A lifecycle policy proves a defined disposal mechanism exists.
+# custom:
+#   controls:
+#     - ctrl-cc6-5-001
+#   schedule: "0 */6 * * *"
+
+package compliance_framework.ecr_require_lifecycle_policy
+
+violation[{}] if {
+	input.resource_type == "ecr-repository"
+	not input.has_lifecycle_policy
+}
+
+title := "ECR repository must have a lifecycle policy configured"
+description := "Repositories without lifecycle policies accumulate stale images indefinitely, violating asset disposal requirements. A lifecycle policy proves a defined disposal mechanism exists."
