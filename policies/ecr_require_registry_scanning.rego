@@ -13,12 +13,12 @@
 
 package compliance_framework.ecr_require_registry_scanning
 
+import future.keywords.in
+
 violation[{}] if {
 	input.resource_type == "ecr-registry"
 	not approved_scan_type(input.registry_scan_type)
 }
-
-import future.keywords.in
 
 approved_scan_type(t) if {
 	t in data.approved_registry_scan_types
