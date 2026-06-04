@@ -22,10 +22,10 @@ title := "ECR repository must enforce image tag immutability"
 description := "Mutable image tags allow silent overwriting of production references without detection. Immutable tags prevent unauthorised substitution and support deployment validation."
 
 risk_templates := [{
-	"name":             "ecr_require_tag_immutability",
+	"name":             "image_tags_mutable",
 	"title":            "ECR image tags are mutable",
 	"statement":        "Mutable image tags allow silent overwriting of production references, enabling undetected substitution.",
 	"likelihood_hint":  "high",
 	"impact_hint":      "high",
-	"violation_ids":    ["ecr_require_tag_immutability"],
+	"violation_ids":    ["image_tags_mutable"],
 }]
