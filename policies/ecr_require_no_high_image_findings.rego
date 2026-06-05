@@ -13,7 +13,7 @@
 
 package compliance_framework.ecr_require_no_high_image_findings
 
-violation[{}] if {
+violation[{"id": "high_vulnerabilities_exceed_threshold"}] if {
 	input.resource_type == "ecr-image"
 	input.findings_high > data.max_high_finding_count
 }

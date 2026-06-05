@@ -13,7 +13,7 @@
 
 package compliance_framework.ecr_require_image_scan_complete
 
-violation[{}] if {
+violation[{"id": "image_scan_not_complete"}] if {
 	input.resource_type == "ecr-image"
 	not input.scan_status == "COMPLETE"
 }

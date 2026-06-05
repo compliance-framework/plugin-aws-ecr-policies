@@ -8,7 +8,7 @@
 
 package compliance_framework.ecr_require_encryption
 
-violation[{}] if {
+violation[{"id": "unapproved_encryption_type"}] if {
 	input.resource_type == "ecr-repository"
 	not approved_encryption(input.encryption_type)
 }

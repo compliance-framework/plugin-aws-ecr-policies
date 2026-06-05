@@ -13,7 +13,7 @@
 
 package compliance_framework.ecr_require_tag_immutability
 
-violation[{}] if {
+violation[{"id": "image_tags_mutable"}] if {
 	input.resource_type == "ecr-repository"
 	not input.image_tag_immutability == "IMMUTABLE"
 }

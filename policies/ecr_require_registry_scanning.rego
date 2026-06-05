@@ -15,7 +15,7 @@ package compliance_framework.ecr_require_registry_scanning
 
 import future.keywords.in
 
-violation[{}] if {
+violation[{"id": "unapproved_registry_scan_type"}] if {
 	input.resource_type == "ecr-registry"
 	not approved_scan_type(input.registry_scan_type)
 }

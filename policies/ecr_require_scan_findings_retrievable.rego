@@ -9,7 +9,7 @@
 
 package compliance_framework.ecr_require_scan_findings_retrievable
 
-violation[{}] if {
+violation[{"id": "scan_findings_not_retrievable"}] if {
 	input.resource_type == "ecr-image"
 	not input.has_severity_data
 }

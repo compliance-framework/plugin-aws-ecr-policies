@@ -10,13 +10,13 @@ package compliance_framework.ecr_require_tags
 
 import future.keywords.in
 
-violation[{"missing_tag": tag}] if {
+violation[{"id": "missing_or_incorrect_required_tags", "missing_tag": tag}] if {
 	input.resource_type == "ecr-repository"
 	some tag in data.required_repository_tags
 	not input.tags[tag]
 }
 
-violation[{"invalid_tag_value": tag, "expected": expected, "got": got}] if {
+violation[{"id": "missing_or_incorrect_required_tags", "invalid_tag_value": tag, "expected": expected, "got": got}] if {
 	input.resource_type == "ecr-repository"
 	some tag, expected in data.required_tag_values
 	got := input.tags[tag]  # only binds when the tag is present; missing tags fall through to missing_tag

@@ -16,7 +16,7 @@
 
 package compliance_framework.ecr_require_scan_on_push
 
-violation[{}] if {
+violation[{"id": "scan_on_push_disabled"}] if {
 	input.resource_type == "ecr-repository"
 	not input.scan_on_push
 }

@@ -13,7 +13,7 @@
 
 package compliance_framework.ecr_require_no_critical_image_findings
 
-violation[{}] if {
+violation[{"id": "critical_vulnerabilities_found"}] if {
 	input.resource_type == "ecr-image"
 	input.findings_critical > 0
 }

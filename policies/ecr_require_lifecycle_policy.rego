@@ -8,7 +8,7 @@
 
 package compliance_framework.ecr_require_lifecycle_policy
 
-violation[{}] if {
+violation[{"id": "lifecycle_policy_missing"}] if {
 	input.resource_type == "ecr-repository"
 	not input.has_lifecycle_policy
 }
